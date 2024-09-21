@@ -31,4 +31,15 @@ orders.push({
 });
 console.log(`Successful order plced for ${customerName}`);
     }
-    
+
+    //Task 4 Create a Function to Calculate Total for an Order
+
+    function calculateOrderTotal(order){
+        for (let orderedItems of order.items){
+            const product =inventory.find(item.name === orderedItems.name);
+            if(product){
+                total += product.price * orderedItems.quantity;
+            }
+        }
+        return total;
+    }
