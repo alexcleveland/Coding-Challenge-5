@@ -14,15 +14,15 @@ const inventory = [
     // Task 3 Create a Function to Place an Order
 
     function placeOrder(customerName, orderedItems){
-        for (let orderedItems of orderedItems){
-const product = inventory.find(item => item.name === orderedItems.name);
+        for (let orderedItem of orderedItems){
+const product = inventory.find(item => item.name === orderedItem.name);
 if (!product || product.quantity < orderedItems.quantity){
 console.error(`Not Enough Stock: ${orderedItems.name}`);
 return;
 }}
-for (let orderedItems of orderedItems){
-    const product =inventory.find(item => item.name === orderedItems.name);
-    product.quantity-=orderedItems.quantity;
+for (let orderedItem of orderedItems){
+    const product =inventory.find(item => item.name === orderedItem.name);
+    product.quantity-=orderedItem.quantity;
 }
 orders.push({
     customerName: customerName,
@@ -35,10 +35,11 @@ console.log(`Successful order plced for ${customerName}`);
     //Task 4 Create a Function to Calculate Total for an Order
 
     function calculateOrderTotal(order){
-        for (let orderedItems of order.items){
-            const product =inventory.find(item.name === orderedItems.name);
+        let total = 0;
+        for (let orderedItem of order.items){
+            const product =inventory.find(item.name === orderedItem.name);
             if(product){
-                total += product.price * orderedItems.quantity;
+                total += product.price * orderedItem.quantity;
             }
         }
         return total;
@@ -47,7 +48,7 @@ console.log(`Successful order plced for ${customerName}`);
     // Task 5 Create a Function to Mark an Order as Completed
 
     function completeOrder(customerName){
-        const order =orders.find(orders => orders.customerName=== customerName);
+        const order =orders.find(order => order.customerName=== customerName);
         if(order){
             order.status = "Completed";
             console.log(`Completed order for ${customerName}`); }
@@ -61,7 +62,6 @@ console.log(`Successful order plced for ${customerName}`);
        pendingOrders.forEach(order =>{
         console.log(`${order.customerName},Items:`);
         order.items.forEach(item => console.log(`${item.name}: ${item.quantity}`));
-        
-        
+    
        });
     }
