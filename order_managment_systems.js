@@ -10,4 +10,25 @@ const inventory = [
     // Task 2 Create an Orders Array of Order Objects
 
     const orders =[];
+
+    // Task 3 Create a Function to Place an Order
+
+    function placeOrder(customerName, orderedItems){
+        for (let orderedItems of orderedItems){
+const product = inventory.find(item => item.name === orderedItems.name);
+if (!product || product.quantity < orderedItems.quantity){
+console.error(`Not Enough Stock: ${orderedItems.name}`);
+return;
+}}
+for (let orderedItems of orderedItems){
+    const product =inventory.find(item => item.name === orderedItems.name);
+    product.quantity-=orderedItems.quantity;
+}
+orders.push({
+    customerName: customerName,
+    items: orderedItems,
+    status: "Pending"
+});
+console.log(`Successful order plced for ${customerName}`);
+    }
     
