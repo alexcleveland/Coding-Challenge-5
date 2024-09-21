@@ -54,3 +54,14 @@ console.log(`Successful order plced for ${customerName}`);
             else{console.error(`Order not Found ${customerName}`);
             }
     }
+    // Task 6 Create a Function to Check Pending Orders
+
+    function checkPendingOrders(){
+        const pendingOrders = orders.filter(order => order.status=== "Pending");
+       pendingOrders.forEach(order =>{
+        console.log(`${order.customerName},Items:`);
+        order.items.forEach(item => console.log(`${item.name}: ${item.quantity}`));
+        
+        
+       });
+    }
