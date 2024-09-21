@@ -43,3 +43,14 @@ console.log(`Successful order plced for ${customerName}`);
         }
         return total;
     }
+    
+    // Task 5 Create a Function to Mark an Order as Completed
+
+    function completeOrder(customerName){
+        const order =orders.find(orders => orders.customerName=== customerName);
+        if(order){
+            order.status = "Completed";
+            console.log(`Completed order for ${customerName}`); }
+            else{console.error(`Order not Found ${customerName}`);
+            }
+    }
